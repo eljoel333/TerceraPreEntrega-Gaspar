@@ -23,4 +23,5 @@ urlpatterns = [
     path('saludando/', saludar),
     path('segundavista/', segundaVista),
     path('saludar/<nombre>', saludo_con_nombre),
+    path('probandoplantilla', plantillaHTML),
 ]
