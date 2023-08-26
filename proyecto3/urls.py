@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from proyecto3.views import *
+from AppCoder.views import crear_curso, listar_cursos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,6 @@ urlpatterns = [
     path('segundavista/', segundaVista),
     path('saludar/<nombre>', saludo_con_nombre),
     path('probandoplantilla', plantillaHTML),
+    path('crear_curso', crear_curso),
+    path('listar_curso/', listar_cursos),
 ]

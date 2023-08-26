@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 
-from django.template import Template, Context
+from django.template import Template, Context, loader
+
+
 
 def saludar(request):
     return HttpResponse("holaaa")
@@ -13,12 +15,10 @@ def saludo_con_nombre(reques, nombre):
 
 def plantillaHTML(request):
 
-    diccionario = {"Nombre":"Joel", "Apellido":"gaspar", "Edad":"38"}
+    diccionario = {"Nombre":"Joel", "Apellido":"gaspar", "Edad":"38", "listanotas":[1,2,3,4,5,6,7,8,9]}
 
-    archivo = open(r"C:\Users\JoelGH\Documents\Cursos\CoderHouse\Python\Clase17\Entrega3\entrega3-env\proyecto3\proyecto3\plnatillas\template1.html")
-    contenido = archivo.read()
-    archivo.close()
-    template = Template(contenido)
-    contexto = Context(diccionario)
-    documento = template.render(contexto)
+   
+    template = loader.get_template("template1.html")
+   
+    documento = template.render(diccionario)
     return HttpResponse(documento)

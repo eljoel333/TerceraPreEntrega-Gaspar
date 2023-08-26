@@ -9,5 +9,16 @@
     <p>Nombre: {{Nombre}}</p>
     <p>Apellido: {{Apellido}}</p>
     <p>Edad: {{Edad}}</p>
+
+    <h2>Notas</h2>
+    {%for nota in listanotas%}
+        
+        {%if nota >= 6%}
+        <p>Nota aprobada: {{nota}}</p>
+        {%else%}
+        <p>Nota reprobada: {{nota}}</p>
+        {%endif%}
+    
+    {%endfor%}
 </body>
 </html>

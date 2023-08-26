@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'AppCoder',
+    
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,7 @@ ROOT_URLCONF = 'proyecto3.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["C:/Users/JoelGH/Documents/Cursos/CoderHouse/Python/Clase17/Entrega3/entrega3-env/proyecto3/proyecto3/plnatillas/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
