@@ -5,4 +5,11 @@
 {%block contenido_que_cambia%}
     <h1>profesores</h1>
     <h1>Este es el contenido de la pagina de entregables</h1>
+    <lu>
+    {%for profe in profesores%}
+        <li>
+            {{profe.nombre}}-{{profe.profesion}}
+        </li>
+    {%endfor%}
 {% endblock %}
+</lu>
