@@ -1,0 +1,18 @@
+{%extends "AppCoder/padre.html"%}
+
+{% load static%}
+{%block titulo%} esta es la pagina de inicio{%endblock%}
+{%block contenido_que_cambia%}
+    <h1>Formulario de Alta de Curso</h1>
+
+    <form action="{%url 'cursoFormulario' %}" method="post">{%csrf_token%}
+        <label for="comision">Numero Comisión:</label>
+        <input id="comision" type="number" name="comision" placeholder="Numero comision" />
+        <label for="nombre">Nombre Comision:</label>
+        <input id="nombre" type="text" name="nombre" placeholder="Nombre Comision" />
+        <input type="submit" value="Guardar Curso" />
+      </form>
+    
+      <h3>{{mensaje}}</h3>
+
+{% endblock %}

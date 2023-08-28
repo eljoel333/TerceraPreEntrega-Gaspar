@@ -27,12 +27,27 @@ def inicio(request):
     return render(request, "AppCoder/inicio.html")
 
 def profesores(request):
-        profesores = Profesor.objects.all()
+        if request.method == "POST":
+              pass
+        else:
+              
+            profesores = Profesor.objects.all()
         return render(request, "AppCoder/profesores.html", {"profesores": profesores})
 
 
 def estudiantes(request):
         return render(request, "AppCoder/estudiantes.html")
+
+def cursoFormulario(request):
+        if request.method == 'POST':
+            nombre = request.POST["nombre"]
+            comision = request.POST["comision"]
+            curso = Curso(nombre=nombre, comision=comision)
+            curso.save()
+            return render(request, "AppCoder/cursoFormulario.html", {"mensaje": "Curso creado"})
+        else:
+            return render(request, "AppCoder/cursoFormulario.html")
+
 
 
 def cursos(request):
