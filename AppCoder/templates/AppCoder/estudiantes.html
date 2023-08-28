@@ -3,6 +3,10 @@
 {% load static%}
 {%block titulo%} esta es la pagina de inicio{%endblock%}
 {%block contenido_que_cambia%}
-    <h1>estudiantes</h1>
-    <h1>Este es el contenido de la pagina de entregables</h1>
+<h1>Estudiantes activos:</h1>
+<ul>
+    {% for est in misestudiantes %}
+        <li>{{est.nombre}} - {{est.apellido}}</li>
+    {% endfor %}
+</ul>
 {% endblock %}

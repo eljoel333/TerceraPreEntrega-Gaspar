@@ -11,6 +11,8 @@ class Estudiante(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     email = models.EmailField()
+    def __str__(self) -> str:
+        return f"{self.nombre}-{self.apellido}-{self.email}"
 
 class Profesor(models.Model):
     nombre = models.CharField(max_length=50)

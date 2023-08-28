@@ -36,10 +36,11 @@ def profesores(request):
 
 
 def estudiantes(request):
-        return render(request, "AppCoder/estudiantes.html")
+        est = Estudiante.objects.all()
+        return render(request, "AppCoder/estudiantes.html", {"misestudiantes":est})
 
 def cursoFormulario(request):
-        if request.method == 'POST':
+        if  request.method == 'POST':
             nombre = request.POST["nombre"]
             comision = request.POST["comision"]
             curso = Curso(nombre=nombre, comision=comision)
@@ -57,3 +58,20 @@ def cursos(request):
 
 def entregables(request):
         return render(request, "AppCoder/entregables.html")
+
+
+def estudianteFormulario(request):
+        if  request.method == 'POST':
+            nombre = request.POST["nombre"]
+            print(nombre)
+            apellido = request.POST["apellido"]
+            print(apellido)
+
+            email = request.POST["email"]
+            print(email)
+
+            est = Estudiante(nombre=nombre, apellido=apellido, email=email)
+            est.save()
+            return render(request, "AppCoder/estudianteFormulario.html", {"mensaje": "El estudiante fue dado de alta"})
+        else:
+            return render(request, "AppCoder/estudianteFormulario.html")
