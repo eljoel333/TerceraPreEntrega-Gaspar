@@ -26,3 +26,17 @@ class Entregable(models.Model):
     nombre = models.CharField(max_length=50)
     fecha_entrega = models.DateField()
     entregado= models.BooleanField()
+
+
+class Clientes(models.Model):
+    nombreCliente = models.CharField(max_length=50)
+    apellidosCliente = models.CharField(max_length=50)
+    correoCliente = models.CharField(max_length=50)
+    adeuda=  models.BooleanField()
+
+class Articulos(models.Model):
+    claveArticulo = models.CharField(max_length=50)
+    descripcionArticulo = models.CharField(max_length=50)
+    numExistencia = models.IntegerField()
+
+    

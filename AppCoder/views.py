@@ -75,3 +75,32 @@ def estudianteFormulario(request):
             return render(request, "AppCoder/estudianteFormulario.html", {"mensaje": "El estudiante fue dado de alta"})
         else:
             return render(request, "AppCoder/estudianteFormulario.html")
+
+
+
+def clienteFormulario(request):
+        if  request.method == 'POST':
+            nombre = request.POST["nombre"]
+            print(nombre)
+            apellidos = request.POST["apellidos"]
+            print(apellidos)
+
+            correo = request.POST["correo"]
+            print(correo)
+
+            adeuda = request.POST["adeuda"]
+            print(adeuda)
+
+           
+            client = Clientes(nombreCliente = nombre, apellidosCliente = apellidos, correoCliente = correo, adeuda= adeuda)
+            client.save();
+
+            return render(request, "AppCoder/clienteFormulario.html", {"mensaje": "El cliente fue dado de alta"})
+
+        else:
+            est = Clientes.objects.all()
+            return render(request, "AppCoder/clienteFormulario.html")
+        
+def clientes(request):
+        est = Clientes.objects.all()
+        return render(request, "AppCoder/clientes.html", {"misclientes":est})

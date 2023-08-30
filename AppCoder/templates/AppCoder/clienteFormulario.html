@@ -1,0 +1,40 @@
+{%extends "AppCoder/padre.html"%}
+
+{% load static%}
+{%block titulo%} esta es la pagina de inicio{%endblock%}
+{%block contenido_que_cambia%}
+    <h1>Formulario de Alta de Clientes:</h1>
+
+    <form action="{%url 'clienteFormulario' %}" method="post">{%csrf_token%}
+      <div class="mb-3">  
+        <label for="nombre" class="form-label">Nombre del Cliente:</label>
+        <input id="nombre" class="form-control" type="text" name="nombre" placeholder="Nombre" />
+      </div>
+
+      <div class="mb-3">  
+        <label for="apellidos" class="form-label">Apellidos del cliente:</label>
+        <input id="apellidos" type="text" class="form-control" name="apellidos" placeholder="Apellidos" />
+    </div>
+    <div class="mb-3">  
+        <label for="correo" class="form-label">Correo del cliente:</label>
+        <input id="correo" type="text" name="correo" class="form-control" placeholder="Apellidos" />
+    </div>
+        <div class="mb-3">  
+        <label for="adeuda" class="form-label">Adeuda:</label>
+        <select class="form-select" id="adeuda" name="adeuda" aria-label="Default select example">
+         
+          <option value="1">SI</option>
+          <option value="0">NO</option>
+          
+        </select>
+        </div></div>
+        
+        <button type="submit" class="btn btn-primary">Guardar Cliente</button>
+      </form>
+
+
+      
+    
+      <h3>{{mensaje}}</h3>
+
+{% endblock %}

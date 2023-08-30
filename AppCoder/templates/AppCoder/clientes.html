@@ -1,0 +1,12 @@
+{%extends "AppCoder/padre.html"%}
+
+{% load static%}
+{%block titulo%} esta es la pagina de inicio para visualizar a los Clientes{%endblock%}
+{%block contenido_que_cambia%}
+<h1>Estudiantes activos:</h1>
+<ul>
+    {% for est in misclientes %}
+        <li>{{est.nombreCliente}} - {{est.apellidosCliente}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
