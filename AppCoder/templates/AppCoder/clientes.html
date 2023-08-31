@@ -1,12 +1,37 @@
-{%extends "AppCoder/padre.html"%}
-
-{% load static%}
-{%block titulo%} esta es la pagina de inicio para visualizar a los Clientes{%endblock%}
+{%extends "AppCoder/padre.html"%} 
+{% load static%} 
+{%block titulo%} Lista de Clientes
+{%endblock%} 
 {%block contenido_que_cambia%}
-<h1>Estudiantes activos:</h1>
-<ul>
+<h1>Clientes activos:</h1>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombres</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Tiene deuda</th>
+    </tr>
+  </thead>
+  <tbody>
     {% for est in misclientes %}
-        <li>{{est.nombreCliente}} - {{est.apellidosCliente}}</li>
+    <tr>
+      <th >{{est.id}}</th>
+      <td>{{est.nombreCliente}}</td>
+      <td>{{est.apellidosCliente }}</td>
+      <td>{{est.correoCliente }}</td>
+        {%if est.adeuda == True%}
+      <td><span class="badge bg-success">NO</span></td>
+    {%else%}
+    <td><span class="badge bg-danger">SI</span></td>
+    {%endif%}
+    </tr>
+
     {% endfor %}
-</ul>
+
+  </tbody>
+</table>
 {% endblock %}

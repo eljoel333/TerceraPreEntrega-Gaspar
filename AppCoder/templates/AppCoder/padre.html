@@ -39,6 +39,9 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'cursos'%}">Ver Cursos</a></li> -->
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'clienteFormulario'%}">Alta de Clientes</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'clientes'%}">Ver Clientes</a></li>
+
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'articulosFormulario'%}">Alta de Artículos</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'articulos'%}">Ver Artículos</a></li>
                     </ul>
                 </div>
             </div>
@@ -46,8 +49,7 @@
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="{% static 'assets/img/avataaars.svg' %}" alt="..." />
+                
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">{%block titulo%} {%endblock%}</h1>
                 <!-- Icon Divider-->
@@ -57,7 +59,7 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
+               
             </div>
         </header>
         <!-- Portfolio Section-->

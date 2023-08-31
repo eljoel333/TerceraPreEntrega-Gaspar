@@ -1,40 +1,96 @@
 {%extends "AppCoder/padre.html"%}
 
 {% load static%}
-{%block titulo%} esta es la pagina de inicio{%endblock%}
+{%block titulo%} Formulario de Clientes{%endblock%}
 {%block contenido_que_cambia%}
-    <h1>Formulario de Alta de Clientes:</h1>
 
-    <form action="{%url 'clienteFormulario' %}" method="post">{%csrf_token%}
-      <div class="mb-3">  
-        <label for="nombre" class="form-label">Nombre del Cliente:</label>
-        <input id="nombre" class="form-control" type="text" name="nombre" placeholder="Nombre" />
-      </div>
 
-      <div class="mb-3">  
-        <label for="apellidos" class="form-label">Apellidos del cliente:</label>
-        <input id="apellidos" type="text" class="form-control" name="apellidos" placeholder="Apellidos" />
-    </div>
-    <div class="mb-3">  
-        <label for="correo" class="form-label">Correo del cliente:</label>
-        <input id="correo" type="text" name="correo" class="form-control" placeholder="Apellidos" />
-    </div>
-        <div class="mb-3">  
-        <label for="adeuda" class="form-label">Adeuda:</label>
-        <select class="form-select" id="adeuda" name="adeuda" aria-label="Default select example">
+    
+      <section class="page-section" id="contact">
+      <div class="container">
+          <!-- Contact Section Heading-->
+          <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Registro de Cliente</h2>
+          <!-- Icon Divider-->
+          <div class="divider-custom">
+              <div class="divider-custom-line"></div>
+              <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+              <div class="divider-custom-line"></div>
+          </div>
+          <!-- Contact Section Form-->
+          <div class="row justify-content-center">
+              <div class="col-lg-8 col-xl-7">
+                
+                  <form action="{%url 'clienteFormulario' %}" method="post">{%csrf_token%}
+                      <!-- Name input-->
+                      <div class="form-floating mb-3">
+                          <input class="form-control" id="nombre" name="nombre" type="text" placeholder="Nombre..." data-sb-validations="required" />
+       
+
+                          <label for="nombre">Nombre completo</label>
+                          <div class="invalid-feedback" data-sb-feedback="name:required">El nombre es requerido</div>
+                      </div>
+
+                      <!-- apellidos input-->
+                      <div class="form-floating mb-3">
+                        <input class="form-control" id="apellidos" name="apellidos" type="text" placeholder="Apellidos..." data-sb-validations="required" />
+                        <label for="apellidos">Apellidos</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">El apellido es requerido</div>
+                    </div>
+
+
+                      <!-- Email address input-->
+                      <div class="form-floating mb-3">
+                          <input class="form-control" id="correo" name="correo" type="correo" placeholder="name@example.com" data-sb-validations="required,email" />
+      
+
+                          <label for="correo">Email address</label>
+                          <div class="invalid-feedback" data-sb-feedback="email:required">El correo es requerido.</div>
+                          <div class="invalid-feedback" data-sb-feedback="email:email">El formato del correo no es válido</div>
+                      </div>
+                      
+                      <!-- Message input-->
+                      
+                    
+                      <label for="correo">Adeuda</label>
+                   
+                      <div class="form-floating mb-3">
+
+                        <select class="form-select" id="adeuda" name="adeuda" aria-label="Default select example">
+                         
          
-          <option value="1">SI</option>
-          <option value="0">NO</option>
-          
-        </select>
-        </div></div>
-        
-        <button type="submit" class="btn btn-primary">Guardar Cliente</button>
-      </form>
+                          <option value="1">SI</option>
+                          <option value="0">NO</option>
+                          
+                        </select>
+                      </div>
+                      <!-- Submit success message-->
+                      <!---->
+                      <!-- This is what your users will see when the form-->
+                      <!-- has successfully submitted-->
+                      <div  id="submitSuccessMessage">
+                          <div class="text-center mb-3">
+                              <div class="fw-bolder"> <h3>{{mensaje}}</h3></div>
+                             
+                              <br />
+                              
+                          </div>
+                      </div>
+                      <!-- Submit error message-->
+                      <!---->
+                      <!-- This is what your users will see when there is-->
+                      <!-- an error submitting the form-->
+                      <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                      <!-- Submit Button-->
+                      <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Guardar Cliente</button>
+        <!-- <button type="submit" class="btn btn-primary">Guardar Cliente</button> -->
 
-
+                  </form>
+              </div>
+          </div>
+      </div>
+  </section>
       
     
-      <h3>{{mensaje}}</h3>
+     
 
 {% endblock %}

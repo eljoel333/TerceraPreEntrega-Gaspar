@@ -1,0 +1,75 @@
+{%extends "AppCoder/padre.html"%}
+
+{% load static%}
+{%block titulo%} Formulario de Artículos{%endblock%}
+{%block contenido_que_cambia%}
+
+
+    
+      <section class="page-section" id="contact">
+      <div class="container">
+          <!-- Contact Section Heading-->
+          <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Registro de Artículos</h2>
+          <!-- Icon Divider-->
+          <div class="divider-custom">
+              <div class="divider-custom-line"></div>
+              <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+              <div class="divider-custom-line"></div>
+          </div>
+          <!-- Contact Section Form-->
+          <div class="row justify-content-center">
+              <div class="col-lg-8 col-xl-7">
+                
+                  <form action="{%url 'articulosFormulario' %}" method="post">{%csrf_token%}
+                      <!-- Name input-->
+                      <div class="form-floating mb-3">
+                          <input class="form-control" id="claveArticulo" name="claveArticulo" type="text" placeholder="Clave Articulo..." data-sb-validations="required" />
+                          <label for="nombre">Nombre Artículo</label>
+                          <div class="invalid-feedback" data-sb-feedback="claveArticulo:required">El nombre es requerido</div>
+                      </div>
+
+                      <!-- apellidos input-->
+                      <div class="form-floating mb-3">
+                        <input class="form-control" id="descripcionArticulo" name="descripcionArticulo" type="text" placeholder="Descripción..." data-sb-validations="required" />
+                        <label for="descripcionArticulo">Descripción</label>
+                        <div class="invalid-feedback" data-sb-feedback="descripcionArticulo:required">La Descripción es requerida</div>
+                    </div>
+
+
+                      <!-- Email address input-->
+                      <div class="form-floating mb-3">
+                          <input class="form-control" id="numExistencia" name="numExistencia" type="number" placeholder="Número de existencia" data-sb-validations="required" />
+                          <label for="numExistencia">Existencia</label>
+                          <div class="invalid-feedback" data-sb-feedback="numExistencia:required">La existencia es requerida</div>
+                       
+                      </div>
+                      
+                
+                     
+                      <div  id="submitSuccessMessage">
+                          <div class="text-center mb-3">
+                              <div class="fw-bolder"> <h3>{{mensaje}}</h3></div>
+                             
+                              <br />
+                              
+                          </div>
+                      </div>
+                      <!-- Submit error message-->
+                      <!---->
+                      <!-- This is what your users will see when there is-->
+                      <!-- an error submitting the form-->
+                      <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                      <!-- Submit Button-->
+                      <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Guardar Artículo</button>
+        <!-- <button type="submit" class="btn btn-primary">Guardar Cliente</button> -->
+
+                  </form>
+              </div>
+          </div>
+      </div>
+  </section>
+      
+    
+     
+
+{% endblock %}

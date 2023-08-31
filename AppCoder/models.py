@@ -33,10 +33,11 @@ class Clientes(models.Model):
     apellidosCliente = models.CharField(max_length=50)
     correoCliente = models.CharField(max_length=50)
     adeuda=  models.BooleanField()
+    def __str__(self) -> str:
+        return f"{self.nombreCliente}-{self.apellidosCliente}"
 
 class Articulos(models.Model):
     claveArticulo = models.CharField(max_length=50)
     descripcionArticulo = models.CharField(max_length=50)
     numExistencia = models.IntegerField()
 
-    

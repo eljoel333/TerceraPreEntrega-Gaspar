@@ -104,3 +104,28 @@ def clienteFormulario(request):
 def clientes(request):
         est = Clientes.objects.all()
         return render(request, "AppCoder/clientes.html", {"misclientes":est})
+
+def articulos(request):
+        est = Articulos.objects.all()
+        return render(request, "AppCoder/articulos.html", {"misarticulos":est})
+
+def articulosFormulario(request):
+        
+        if  request.method == 'POST':
+            claveArticulo  = request.POST["claveArticulo"]
+            print(claveArticulo )
+            descripcionArticulo  = request.POST["descripcionArticulo"]
+            print(descripcionArticulo )
+
+            numExistencia  = request.POST["numExistencia"]
+            print(numExistencia )
+
+           
+            artic = Articulos(claveArticulo = claveArticulo, descripcionArticulo = descripcionArticulo, numExistencia = numExistencia)
+            artic.save();
+
+            return render(request, "AppCoder/articulosFormulario.html", {"mensaje": "El articulo fue dado de alta"})
+
+        else:
+            est = Clientes.objects.all()
+            return render(request, "AppCoder/articulosFormulario.html")
